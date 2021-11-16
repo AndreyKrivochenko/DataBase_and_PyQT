@@ -7,18 +7,12 @@ import subprocess
 from ipaddress import ip_address
 
 
-def host_ping(begin_addr: str, end_addr: str):
-    addr_count = int(ip_address(end_addr)) - int(ip_address(begin_addr)) + 1
-    begin_count = int(begin_addr.split('.')[-1])
-    end_count = begin_count + addr_count
-    for i in range(begin_count, end_count):
-        address = begin_addr.split('.')[:-1]
-        address.append(str(i))
-        address = '.'.join(address)
-        print(f'Адрес {address}\t-\t', end='')
-        process = subprocess.run(['ping', '-c', '3', '-q', address], stdout=subprocess.DEVNULL)
+def host_ping(addr_lst: list):
+    for el in addr_lst:
+        print(f'Адрес {ip_address(el)}\t-\t', end='')
+        process = subprocess.run(['ping', '-c', '3', str(ip_address(el))], stdout=subprocess.DEVNULL)
         print('Узел недоступен' if process.returncode else 'Узел доступен')
 
 
 if __name__ == '__main__':
-    host_ping('192.168.88.137', '192.168.88.150')
+    host_ping(['192.168.88.77', '192.168.88.56', '192.168.88.92'])
