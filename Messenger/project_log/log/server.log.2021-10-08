@@ -1,0 +1,9 @@
+2021-10-08 11:50:16,402     INFO         server.py                 Сервер запущен. Адрес - localhost, порт - 8899
+2021-10-08 11:50:20,388     INFO         server.py                 Установлено соединение с клиентом: ('127.0.0.1', 52470)
+2021-10-08 11:50:20,394     DEBUG        server.py                 Вызвана функция get_message с параметрами (<socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8899), raddr=('127.0.0.1', 52470)>,), {}. Вызов из модуля common.utils.Вызов из функции main
+2021-10-08 11:50:20,395     DEBUG        server.py                 От клиента получено сообщение: {'action': 'presence', 'time': 1633668620.38887, 'user': {'account_name': 'Guest'}}
+2021-10-08 11:50:20,395     DEBUG        server.py                 Сообщение от клиента: {'action': 'presence', 'time': 1633668620.38887, 'user': {'account_name': 'Guest'}}
+2021-10-08 11:50:20,395     DEBUG        server.py                 Вызвана функция process_client_message с параметрами ({'action': 'presence', 'time': 1633668620.38887, 'user': {'account_name': 'Guest'}},), {}. Вызов из модуля __main__.Вызов из функции main
+2021-10-08 11:50:20,395     INFO         server.py                 Сформирован ответ клиенту: {'response': 200}
+2021-10-08 11:50:20,395     DEBUG        server.py                 Вызвана функция send_message с параметрами (<socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8899), raddr=('127.0.0.1', 52470)>, {'response': 200}), {}. Вызов из модуля common.utils.Вызов из функции main
+2021-10-08 11:50:20,395     DEBUG        server.py                 Сединение с клиентом закрывается
