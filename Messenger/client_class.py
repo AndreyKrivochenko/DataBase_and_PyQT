@@ -55,13 +55,15 @@ class Client:
 
     @Log()
     def process_answ(self, message):
-        CLIENT_LOGGER.debug(f'Сообщение от сервера: {message}')
-        if RESPONSE in message:
-            if message[RESPONSE] == 200:
-                self.server_answer = '200: Ok'
-            else:
-                self.server_answer = f'400: {message[ERROR]}'
-        raise ValueError
+        try:
+            CLIENT_LOGGER.debug(f'Сообщение от сервера: {message}')
+            if RESPONSE in message:
+                if message[RESPONSE] == 200:
+                    self.server_answer = '200: Ok'
+                else:
+                    self.server_answer = f'400: {message[ERROR]}'
+        except ValueError:
+            print(f'Неверный ответ сервера - {message}')
 
     @Log()
     def message_from_server(self, sock, my_username):
